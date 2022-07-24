@@ -14,4 +14,9 @@ See [Gitpod](./gitpod/README.md)
 ## Octant
 
 
+## MARP
+
+A Visual Studio plugin to make nice presentations such as:
+
+* [gitpod presentation](./gitpod/presentation-2022-07.md) => [as pdf](./gitpod/presentation-2022-07.pdf)
 

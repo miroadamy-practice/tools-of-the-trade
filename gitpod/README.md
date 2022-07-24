@@ -27,3 +27,9 @@ It is essentially an Visual Studio Code in the cloud.
 
 ![](./img/variables.png)
 
+### Starting templates:
+
+* https://www.gitpod.io/docs/quickstart/typescript
+* https://www.gitpod.io/docs/quickstart/go
+* https://www.gitpod.io/docs/quickstart/docker-compose
+* https://www.gitpod.io/docs/quickstart/flask
