@@ -37,20 +37,39 @@ Use Web URL, not clone URL:
 
 `https://gitpod.io/#https://bitbucket.org/
  pivotree/oneclick-security/src/master/`
----
-# Environment 
 
+---
+# Environment
 It is essentially an Visual Studio Code in the cloud.
 
 ![w:18cm h:10cm](./img/gitpod-ui.png)
 
-
 ---
-
 # Its free(mium)
 
 ![w:18cm h:10cm](./img/plans.png)
 
+---
+
+# Workspaces
+
+* your own source code copy in container
+* can have multiple, even parallel (plan)
+* can be shared, downloaded, snapshot
+* co-development
+* only FS under `/workspace` is preserved between runs
+---
+
+# Configuration
+
+* can install packages - even sudo
+* access to Docker and Dockercompose
+* `gitpod/worspace-full` and `gitpod/workspace-base`
+
+* lang-c,lang-clojure, lang-go:1.17.5, lang-java:11
+* lang-node:16.13.2
+* lang-python, lang-ruby:2.7, lang-rust
+* tool-brew, tool-nginx, tool-nix:2.3.14
 ---
 
 # Variables
