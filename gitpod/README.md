@@ -371,3 +371,48 @@ For more information, see the Gitpod documentation: https://gitpod.io/docs
 
 
 
+## Setup automation
+
+```
+gitpod /workspace/tools-of-the-trade (cloud) $ gp
+Command line interface for Gitpod
+
+Usage:
+  gp [command]
+
+Available Commands:
+  env                 Controls user-defined, persistent environment variables.
+  help                Help about any command
+  init                Create a Gitpod configuration for this project.
+  open                Opens a file in Gitpod
+  ports               Interact with workspace ports.
+  preview             Opens a URL in the IDE's preview
+  snapshot            Take a snapshot of the current workspace
+  stop                Stop current workspace
+  sync-await          Awaits an event triggered using gp sync-done
+  sync-done           Notifies the corresponding gp sync-await calls that this event has happened
+  tasks               Interact with workspace tasks
+  timeout             Interact with workspace timeout configuration
+  top                 Display usage of workspace resources (CPU and memory)
+  url                 Prints the URL of this workspace
+  version             Prints the version of the CLI
+
+Flags:
+  -h, --help   help for gp
+
+Use "gp [command] --help" for more information about a command.
+gitpod /workspace/tools-of-the-trade (cloud) $ gp env
+DOCKER_PASSWORD=c5a9506d-3517-4ae6-891d-5b635f714ed8
+BBUSER=miro-adamy-pvt
+AWS_SECRET_ACCESS_KEY=7************************K
+AWS_ACCESS_KEY_ID=AKIAZ7MM55Y5CGYPT24B
+BBPASSWORD=9XVdvEkTuyPAGepgWLxP
+DOCKER_USERNAME=miroadamy
+BBURL=https://api.bitbucket.org/2.0
+gitpod /workspace/tools-of-the-trade (cloud) $ gp url
+https://miroadamypr-toolsofthet-jj4r1g8rk19.ws-eu54.gitpod.io
+gitpod /workspace/tools-of-the-trade (cloud) $ gp version
+main.4084
+gitpod /workspace/tools-of-the-trade (cloud) $ gp init
+
+```
