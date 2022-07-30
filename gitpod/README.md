@@ -419,7 +419,14 @@ gitpod /workspace/tools-of-the-trade (cloud) $ gp init
 
 This generates `.gitpod.yml`
 
-Member of tasks - dash => new terminal.
+Member of tasks - dash => new terminal. Tasks run on top of Docker images (default or custom)
+
+With Gitpod, you have the following three types of tasks:
+
+* before: Use this for tasks that need to run before init and before command. For example, customize the terminal or install global project dependencies.
+* init: Use this for heavy-lifting tasks such as downloading dependencies or compiling source code.
+* command: Use this to start your database or development server.
+
 
 Full syntax:
 
@@ -433,5 +440,124 @@ tasks:
     before echo 'Before Second'
     init: echo 'Second init'
     command: echo ' start in second'
-    
+
 ```
+
+Push and open new Gitpod.
+
+Output:
+
+```
+Before
+Init script
+ start script - runs on each command
+```
+
+```
+Before Second
+Second init
+ start in second
+```
+
+After enabling Prebuild (see https://www.gitpod.io/docs/prebuilds), I get this:
+
+```
+gitpod /workspace/tools-of-the-trade (main) $ {
+> echo Before
+> } && {
+> echo 'Init script'
+> }; exit
+Before
+Init script
+exit
+
+🤙 This task ran as a workspace prebuild
+
+ start script - runs on each command
+
+ ---
+gitpod /workspace/tools-of-the-trade (main) $ {
+> echo 'Before Second'
+> } && {
+> echo 'Second init'
+> }; exit
+Before Second
+Second init
+exit
+
+🤙 This task ran as a workspace prebuild
+
+ start in second
+
+
+```
+
+### Prebuilds
+
+Any change made in init outside of `/workspace/` is lost
+
+Enable prebuild: New Project - https://gitpod.io/new
+
+Prebuild (if enabled): BEFORE + INIT
+
+New Workspace:
+
+* with prebuild: BEFORE + COMMAND
+* no prebuild:  BEFORE + INIT + COMMAND
+
+Restart workspace (with or w/o Prebuild): BEFORE + COMMAND
+
+Start snapshot: BEFORE + COMMAND
+
+
+### Multi-line tasks
+
+```
+tasks:
+  - name: Dependencies & Database
+    init: |
+      npm install
+      npm run configure-database
+    command: npm run dev
+```
+
+### Tasks ordering
+
+```
+tasks:
+  - name: Rails
+    init: >
+      bundle install &&
+      yarn install --check-files &&
+      rails db:setup &&
+      gp sync-done bundle # 'bundle' is an arbitrary name
+    command: rails server
+
+  - name: Webpack
+    init: gp sync-await bundle # wait for the above 'init' to finish
+    command: bin/webpack-dev-server
+
+  - name: Redis
+    init: gp sync-await bundle
+    command: redis-server
+
+  - name: Sidekiq
+    init: gp sync-await bundle
+    command: sidekiq
+```
+
+Wait for the port:
+
+```
+tasks:
+  - name: Dev Server
+    init: npm install
+    command: npm run dev
+
+  - name: e2e Tests
+    command: |
+      gp ports await 3000
+      npm run test
+```
+
+### Ports
