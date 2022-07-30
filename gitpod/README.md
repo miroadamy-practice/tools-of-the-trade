@@ -21,6 +21,36 @@ It is essentially an Visual Studio Code in the cloud.
 ![](./img/plans.png)
 
 ![](./img/integrations.png)
+
+### Logo for Readme
+
+Code to contribute:
+
+<a href="https://gitpod.io/#<your-project-url>">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
+
+
+```html
+<a href="https://gitpod.io/#<your-project-url>">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
+```
+
+Or
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#<your-project-url>)
+
+```markdown
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#<your-project-url>)
+```
+
 ## Configuration
 
 ### Variables
@@ -33,3 +63,4 @@ It is essentially an Visual Studio Code in the cloud.
 * https://www.gitpod.io/docs/quickstart/go
 * https://www.gitpod.io/docs/quickstart/docker-compose
 * https://www.gitpod.io/docs/quickstart/flask
+

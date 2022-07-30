@@ -26,6 +26,18 @@ Then open a repository in container from the browser:
 
 
 ---
+# Open a workspace - no plugin
+
+Prefix URL with https://gitpod.io/#
+Must be logged in both - BB and Gitpod
+Use Web URL, not clone URL:
+
+* OK : https://bitbucket.org/pivotree/oneclick-security/src/master/ 
+* Not OK: https://miro-adamy-PVT@bitbucket.org/pivotree/oneclick-security.git
+
+`https://gitpod.io/#https://bitbucket.org/
+ pivotree/oneclick-security/src/master/`
+---
 # Environment 
 
 It is essentially an Visual Studio Code in the cloud.
