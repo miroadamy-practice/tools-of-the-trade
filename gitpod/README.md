@@ -565,3 +565,45 @@ tasks:
 ```
 
 ### Ports
+
+We can open port in `ports` part
+
+```
+$ gp url
+https://miroadamypr-toolsofthet-yj0hmgx11u1.ws-eu54.gitpod.io
+
+ $ gp url 3000
+https://3000-miroadamypr-toolsofthet-yj0hmgx11u1.ws-eu54.gitpod.io
+
+ $ gp ports list
+| PORT |     STATUS     |                                URL                                 | NAME & DESCRIPTION |
+|------|----------------|--------------------------------------------------------------------|--------------------|
+| 3000 | open (private) | https://3000-miroadamypr-toolsofthet-yj0hmgx11u1.ws-eu54.gitpod.io |                    |
+
+```
+
+Go to URL - https://3000-miroadamypr-toolsofthet-yj0hmgx11u1.ws-eu54.gitpod.io/, needs to be logged in
+
+The property onOpen configures port opening behaviors:
+
+* notify (default) - Show a notification for newly detected ports.
+* open-preview - Open the port URL in a preview within the editor or IDE.
+* open-browser - Open the port URL a browser tab.
+* ignore - Ignore default behavior (notify).
+
+Shows all ports in Remote Explorer of IDE, can switch to public 
+(or use visibility: public)
+
+The config works for ranges or ports:
+
+```
+ports:
+  - port: 3000-8999
+    onOpen: ignore
+```
+
+TODO: Port forwarding - need to try it out, do not quite understand this
+
+https://www.gitpod.io/docs/config-ports
+
+# CONTINUE IN: [README-2](./README-2.md)
