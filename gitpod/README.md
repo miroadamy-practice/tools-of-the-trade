@@ -416,3 +416,22 @@ main.4084
 gitpod /workspace/tools-of-the-trade (cloud) $ gp init
 
 ```
+
+This generates `.gitpod.yml`
+
+Member of tasks - dash => new terminal.
+
+Full syntax:
+
+```
+tasks:
+  - name: First Terminal
+    before: echo Before
+    init: echo 'Init script'
+    command: echo ' start script - runs on each command'
+  - name: Second Terminal
+    before echo 'Before Second'
+    init: echo 'Second init'
+    command: echo ' start in second'
+    
+```
