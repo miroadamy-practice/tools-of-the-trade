@@ -494,6 +494,10 @@ exit
 
 ### Prebuilds
 
+It uses applications - https://github.com/apps/gitpod-io/installations/new
+
+Depends on SCM - 
+
 Any change made in init outside of `/workspace/` is lost
 
 Enable prebuild: New Project - https://gitpod.io/new
