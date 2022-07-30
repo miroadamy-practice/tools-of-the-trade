@@ -1,13 +1,22 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - name: First Terminal
-    before: echo Before
-    init: echo 'Init script'
-    command: echo ' start script - runs on each command'
-  - name: Second Terminal
-    before: echo 'Before Second'
-    init: echo 'Second init'
-    command: echo ' start in second'
+  - name: Dev
+    before: |
+      npm version
+      node --version
+    init: |
+      cd demo-app 
+      npm install
+      gp sync-done npm-inst 
+    command: echo 'Ready to develop'
+  - name: Server
+    before: |
+      npm version
+      node --version
+    init: echo 'waiting init' && gp sync-await npm-inst
+    command: |
+      cd demo-app
+      npm start
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:

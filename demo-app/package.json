@@ -1,0 +1,20 @@
+{
+  "name": "demo-project",
+  "version": "1.0.0",
+  "description": "Demo project for Gitpod",
+  "main": "app.js",
+  "scripts": {
+    "test": "vows --spec --isolate",
+    "start": "node app.js",
+    "predeploy": "echo About to deploy",
+    "postdeploy": "echo Deployed"
+  },
+  "dependencies": {
+    "express": "4.2.x"
+  },
+  "devDependencies": {
+    "assume": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
