@@ -275,6 +275,64 @@ tmpfs              32G     0   32G   0% /proc/scsi
 
 ![](./img/variables.png)
 
+Default variables:
+
+* GITPOD_WORKSPACE_ID: The Universally Unique Identifier (UUID) associated with the workspace.
+* GITPOD_WORKSPACE_URL: The unique URL of the workspace.
+* GITPOD_REPO_ROOT: Path to the directory where your git repository was cloned inside the workspace.
+
+```
+ $ env | grep GITPOD_
+GITPOD_REPO_ROOT=/workspace/tools-of-the-trade
+GITPOD_ANALYTICS_WRITER=segment
+GITPOD_PREVENT_METADATA_ACCESS=true
+GITPOD_OWNER_ID=0c655b71-ab9f-472d-a4a0-94d9187d7bd8
+GITPOD_WORKSPACE_ID=miroadamypr-toolsofthet-yj0hmgx11u1
+GITPOD_INTERVAL=30000
+GITPOD_WORKSPACE_CONTEXT_URL=https://github.com/miroadamy-practice/tools-of-the-trade
+GITPOD_WORKSPACE_CLASS=default
+GITPOD_INSTANCE_ID=014e3bf2-2a8d-4918-99f1-5122cf85adbb
+GITPOD_REPO_ROOTS=/workspace/tools-of-the-trade
+GITPOD_WORKSPACE_URL=https://miroadamypr-toolsofthet-yj0hmgx11u1.ws-eu54.gitpod.io
+GITPOD_THEIA_PORT=23000
+GITPOD_WORKSPACE_CONTEXT={"isFile":false,"path":"","title":"miroadamy-practice/tools-of-the-trade - main","ref":"main","refType":"branch","revision":"a7b330d51589a35f23b29bbe6dc80d2101b73898","repository":{"cloneUrl":"https://github.com/miroadamy-practice/tools-of-the-trade.git","host":"github.com","name":"tools-of-the-trade","owner":"miroadamy-practice","private":false},"normalizedContextURL":"https://github.com/miroadamy-practice/tools-of-the-trade","checkoutLocation":"tools-of-the-trade","snapshotBucketId":"workspaces/miroadamypr-toolsofthet-nk3rtfjxf0s/snapshot-1659217496072860705.tar@gitpod-prod-user-0c655b71-ab9f-472d-a4a0-94d9187d7bd8","prebuildWorkspaceId":"8e7ea3e3-2ae5-4883-82f3-6ba24c7ca333","wasPrebuilt":true}
+GITPOD_CLI_APITOKEN=fU.ZlAT3LMkWZ5OfsjhPIGwdyY44oNGT
+GITPOD_WORKSPACE_CLUSTER_HOST=ws-eu54.gitpod.io
+GITPOD_GIT_USER_NAME=Miro Adamy
+GITPOD_MEMORY=3435
+GITPOD_ANALYTICS_SEGMENT_KEY=bUY8IRdJ42KjLOBS9LoIHMYFBD8rSzjU
+GITPOD_HOST=https://gitpod.io
+GITPOD_IDE_ALIAS=code
+GITPOD_GIT_USER_EMAIL=miro.adamy@gmail.com
+GITPOD_TASKS=[{"name":"Dev","before":"npm version\nnode --version\n","init":"cd demo-app \nnpm install\ngp sync-done npm-inst \n","command":"echo 'Ready to develop'"},{"name":"Server","before":"npm version\nnode --version\n","init":"echo 'waiting init' && gp sync-await npm-inst","command":"cd demo-app\nnpm start\n"}]
+
+```
+
+Gitpod supports encrypted, user-specific environment variables. They are stored as part of your user settings and can be used to set access tokens, or pass any other kind of user-specific information to your workspaces.
+
+Setting the user-specific vars:
+
+
+* `gp env foo=bar` . => for the NEXT RUN, gp does NOT see current variables
+* `eval $(gp env -e foo=bar)` => update the variable AND terminal
+* `eval $(gp env -e)` - refresh terminal
+
+Set using Variables in account settings: https://gitpod.io/variables
+
+Also: PROJECT SPECIFIC - will override user specific (account)
+
+Note that gp env only sets user specific
+
+Terminal specific - in `env:` part of `tasks`
+
+```
+tasks:
+  - name: Example of passing an environment variable to a command
+    env:
+      PRINT_ME: "Hello World!"
+    command: echo "$PRINT_ME"
+```
+
 ### Starting templates:
 
 * https://www.gitpod.io/docs/quickstart/typescript
@@ -288,8 +346,6 @@ tmpfs              32G     0   32G   0% /proc/scsi
 I got:
 
 miroadamy-ekswithcdk-96vdowsc3jv, 90 MB - what is it
-
-#### Share => later
 
 #### Connect with:
 
