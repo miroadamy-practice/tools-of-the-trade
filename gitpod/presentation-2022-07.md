@@ -131,12 +131,19 @@ See https://www.gitpod.io/docs/prebuilds
 
 ---
 
-# Custom images
+# Custom Docker images
 
-As part of `.gitpod.yml` - use custom Docker file
+![w:21cm h:12cm](./img/dockerconfig.png)
 
 ---
 
+# Custom images ...
+
+`.gitpod.yml` - use custom Docker file
+
+![w:18cm h:10cm](./img/gitpod-yml-2.png)
+
+---
 # Multi-repo projects
 
 Multiple workspaces - OK is browser is only client
