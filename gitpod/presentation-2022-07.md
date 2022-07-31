@@ -79,3 +79,67 @@ Available to one or more containers
 ![w:18cm h:10cm](./img/variables.png)
 
 ---
+
+# Automation
+
+`.gitpod.yml` - runs on workspace creation / restart
+
+![w:20cm h:11cm](./img/gitpod-yml.png)
+
+---
+# Prebuilds
+
+Enable prebuild: New Project - https://gitpod.io/new
+
+New Workspace:
+* with prebuild: BEFORE + COMMAND
+* no prebuild:  BEFORE + INIT + COMMAND
+
+Restart workspace (with or w/o Prebuild): BEFORE + COMMAND
+Start snapshot: BEFORE + COMMAND
+
+See https://www.gitpod.io/docs/prebuilds
+
+---
+
+# gp CLI
+
+`gp help`
+`gp init`
+`gp ports`
+`gp url 3000`
+`gp env foo=bar`
+`eval $(gp env -e foo=bar)` => update the variable AND terminal
+
+---
+
+# Ports
+
+* specify in gitpod.yml
+* `gp port list`
+* `gp url PORT` => URL
+   * can be public or private
+
+---
+# Sharing and connectivity
+
+* can share live environment => Token URL
+* can share snapshot
+* can add public key and use SSH
+* can get public URL with token (connect for shared access)
+* can open a port for public or private remote access
+
+---
+
+# Custom images
+
+As part of `.gitpod.yml` - use custom Docker file
+
+---
+
+# Multi-repo projects
+
+Multiple workspaces - OK is browser is only client
+Backend-integrations: Tailscale - https://tailscale.com/
+
+See https://www.gitpod.io/guides/connect-multiple-repositories-using-tailscale

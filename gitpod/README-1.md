@@ -550,6 +550,8 @@ exit
 
 ### Prebuilds
 
+https://www.gitpod.io/docs/prebuilds
+
 It uses applications - https://github.com/apps/gitpod-io/installations/new
 
 Depends on SCM - 
@@ -568,6 +570,23 @@ New Workspace:
 Restart workspace (with or w/o Prebuild): BEFORE + COMMAND
 
 Start snapshot: BEFORE + COMMAND
+
+*Manual pre-build - GITHUB*
+
+To enable prebuilt workspaces for a GitHub repository, follow these steps:
+
+1. Go to the Gitpod GitHub app and click Configure
+2. Choose the organization or account you wish to install the Gitpod app for, then click Install
+3. You will be forwarded to Gitpod where you can confirm the installation
+
+
+*Manual pre-build - BITBUCKET*
+
+To enable prebuilt workspaces for a Bitbucket repository, follow these steps:
+
+1. Allow Gitpod to install repository webhooks, by granting webhook permissions in Git Provider Integrations
+2. Trigger a first prebuild manually, by prefixing the repository URL with gitpod.io/#prebuild/ e.g. like so:
+
 
 
 ### Multi-line tasks
@@ -621,6 +640,8 @@ tasks:
 ```
 
 ### Ports
+
+https://www.gitpod.io/docs/config-ports
 
 We can open port in `ports` part
 
