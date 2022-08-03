@@ -61,5 +61,10 @@ In addition to default, there is marketplace: <https://github.com/marketplace>
 
 Must have `.yml` or `.yaml`
 
-
 See <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions>
+
+Where is this documented: <https://github.com/actions>, see `./action.yml` => <https://github.com/actions/checkout/blob/main/action.yml>
+
+<https://github.com/actions/checkout#Checkout-multiple-repos-private>
+
+This one is useful: <https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml>
