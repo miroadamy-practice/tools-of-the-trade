@@ -10,6 +10,8 @@ See [Gitpod](./gitpod/README.md)
 
 ## K9s
 
+See https://k9scli.io/topics/commands/
+
 
 ## Octant
 
