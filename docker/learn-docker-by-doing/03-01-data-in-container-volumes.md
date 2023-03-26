@@ -198,3 +198,45 @@ local     4ce83cb38f1408c5065b9c6569cee8f21f5b60b37c9e5eb0a43bba2f3910c6ce
 local     website
 
 ```
+
+## Backup and restore
+
+```sh
+
+[cloud_user@ip-10-0-1-31 ~]$ sudo -i
+[sudo] password for cloud_user:
+[root@ip-10-0-1-31 ~]# docker volume inspect website
+[
+    {
+        "CreatedAt": "2023-03-26T12:46:14-04:00",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/website/_data",
+        "Name": "website",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+[root@ip-10-0-1-31 ~]# tar czf /tmp/website_$(date +%Y-%m-%d-%H%M).tgz -C /var/lib/docker/volumes/website/_data .
+
+[root@ip-10-0-1-31 ~]# ll
+total 4
+-rw-------. 1 root root 1524 Feb  3  2017 anaconda-ks.cfg
+
+[root@ip-10-0-1-31 ~]# ll /tmp
+total 1200
+-rw-r--r--. 1 root root 1212535 Jan 18  2022 aws-cfn-bootstrap-latest.amzn1.noarch.rpm
+drwx------. 3 root root      17 Mar 26 12:29 systemd-private-7114cb6477e8429eb5f03211aa9d4805-chronyd.service-M7DSSK
+-rw-r--r--. 1 root root   11364 Mar 26 13:03 website_2023-03-26-1303.tgz
+
+[root@ip-10-0-1-31 ~]# tar tf /tmp/website_2023-03-26-1303.tgz
+./
+./img/
+./img/LargeWidget.png
+./img/MediumWidget.png
+./img/SmallWidget.png
+./index.html
+./quote.html
+./support.html
+./widgets.html
+```
