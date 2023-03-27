@@ -286,3 +286,59 @@ sha256:10f56d9b82f42fd376ea5802b078d13b60a8b840293d26d7eb7828af84911cc7
 
 ```
 
+## Version 2
+
+```sh
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ vim Dockerfile
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ cat Dockerfile
+FROM httpd:2.4
+
+RUN apt update -y && apt upgrade -y && apt autoremove -y && apt clean && rm -rf /var/lib/apt/lists*
+RUN rm -f /usr/local/apache2/htdocs/index.html
+
+
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ docker build -t widgetfactory:0.2 .
+[+] Building 0.4s (7/7) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                    0.0s
+ => => transferring dockerfile: 263B                                                                                                                    0.0s
+ => [internal] load .dockerignore                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                         0.0s
+ => [internal] load metadata for docker.io/library/httpd:2.4                                                                                            0.0s
+ => [1/3] FROM docker.io/library/httpd:2.4                                                                                                              0.0s
+ => CACHED [2/3] RUN apt update -y && apt upgrade -y && apt autoremove -y && apt clean && rm -rf /var/lib/apt/lists*                                    0.0s
+ => [3/3] RUN rm -f /usr/local/apache2/htdocs/index.html                                                                                                0.3s
+ => exporting to image                                                                                                                                  0.0s
+ => => exporting layers                                                                                                                                 0.0s
+ => => writing image sha256:b5a8985a4ba6aa79091ed281947ff6a725bf5ee5c3c1dcf3488430bab2192844                                                            0.0s
+ => => naming to docker.io/library/widgetfactory:0.2                                                                                                    0.0s
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ docker images
+REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+widgetfactory   0.2       b5a8985a4ba6   11 seconds ago   149MB
+widgetfactory   0.1       bf0e426c9414   5 minutes ago    149MB
+httpd           2.4       192d41583429   4 days ago       145MB
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ docker inspect -f "$showSize" widgetfactory:0.1
+149332852
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ docker inspect -f "$showSize" widgetfactory:0.2
+149332852
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ docker run --rm -it widgetfactory:0.2 bash
+root@755d24eda60d:/usr/local/apache2# ls htdocs
+root@755d24eda60d:/usr/local/apache2# exit
+exit
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ docker inspect -f "$showLayers" widgetfactory:0.1
+sha256:3af14c9a24c941c626553628cf1942dcd94d40729777f2fcfbcd3b8a3dfccdd6
+sha256:d0dbdb0bf1f709f4b1a3e0d1708bcbaea360c9a9f5281439cfcfcc55e3ed8cd3
+sha256:8065d3aedc6d597a95576135e68ebfe03fedc190645e3a53b716ca30ad18309b
+sha256:626b836c6b3cc4b68e492082a6a2c635551ac5eca97b124195e62239842c5a39
+sha256:10f56d9b82f42fd376ea5802b078d13b60a8b840293d26d7eb7828af84911cc7
+sha256:5384ecc1d37e2ac4849f3d98f6a2568939f976494cbf4666b6820c51a4dd10e0
+
+[cloud_user@ip-10-0-1-148 widget-factory-inc]$ docker inspect -f "$showLayers" widgetfactory:0.2
+sha256:3af14c9a24c941c626553628cf1942dcd94d40729777f2fcfbcd3b8a3dfccdd6
+sha256:d0dbdb0bf1f709f4b1a3e0d1708bcbaea360c9a9f5281439cfcfcc55e3ed8cd3
+sha256:8065d3aedc6d597a95576135e68ebfe03fedc190645e3a53b716ca30ad18309b
+sha256:626b836c6b3cc4b68e492082a6a2c635551ac5eca97b124195e62239842c5a39
+sha256:10f56d9b82f42fd376ea5802b078d13b60a8b840293d26d7eb7828af84911cc7
+sha256:5384ecc1d37e2ac4849f3d98f6a2568939f976494cbf4666b6820c51a4dd10e0
+sha256:505fe7cb52ec2f490346007acf8bff1b69631050053371e53f8eadd09ecffc0a
+
+```
